@@ -1,26 +1,27 @@
 import { useState } from "react"
 import AddCategory from './components/AddCategory';
-
+import GifGrid from "./components/GifGrid";
+import { Categories } from './types/categories.types';
 interface GifExpertAppProps {
   
 }
  
 const GifExpertApp = (props: GifExpertAppProps) => {
-  const [categories, setCategories] = useState(['One Punch', 'Samurai X', 'Dragon Ball'])
+  const initData = [] as Categories
+  const [categories, setCategories] = useState<Categories>(initData)
   return (
     <>
       <h2>GifExpertApp</h2>
       <hr/>
-      <AddCategory/>
+      <AddCategory setCategories={setCategories}/>
       <ol>
         {
-          categories.map( (category, i) => {
-            return (
-              <li key={`category-li-${category}-${i}`}>
-                {category}
-              </li>
-            )
-          })
+          categories.map( (category, i) => (
+            <GifGrid
+              key={`category-li-${category}-${i}`}
+              category={category}
+            />
+          ))
         }
       </ol>
     </>
