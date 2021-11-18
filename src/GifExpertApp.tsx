@@ -14,7 +14,7 @@ const GifExpertApp = (props: GifExpertAppProps) => {
       <h2>GifExpertApp</h2>
       <hr/>
       <AddCategory setCategories={setCategories}/>
-      <ol>
+      <div>
         {
           categories.map( (category, i) => (
             <GifGrid
@@ -23,7 +23,7 @@ const GifExpertApp = (props: GifExpertAppProps) => {
             />
           ))
         }
-      </ol>
+      </div>
     </>
   )
 }

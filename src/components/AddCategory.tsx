@@ -18,7 +18,7 @@ const AddCategory = ({ setCategories }: Props) => {
     if(newCategory.trim().length > 1){
       setCategories(rest => {
         if(rest.find(cat=> cat === newCategory) === undefined){
-          return [...rest, newCategory]
+          return [newCategory, ...rest]
         }
         return [...rest]
       })
